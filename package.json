@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev:main": "node --loader ts-node/esm api/index.ts",
-    "dev:pdf": "node --loader ts-node/esm api/pdf.tsx",
+    "dev:main": "node --loader ts-node/esm local/index.ts",
+    "dev:pdf": "node --loader ts-node/esm local/pdf.tsx",
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:pdf\"",
-    "start": "concurrently \"node --loader ts-node/esm api/index.ts\" \"node --loader ts-node/esm api/pdf.tsx\""
+    "start": "npm run dev"
   },
   "author": "",
   "license": "ISC",

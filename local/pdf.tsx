@@ -1,6 +1,11 @@
+import express, { Request, Response } from "express";
+import cors from "cors";
 import React from "react";
-import { renderToStream } from "@react-pdf/renderer";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import ReactPDF, { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+
+const PORT = process.env.PORT_PDF || 3001;
+const app = express();
+app.use(cors({ origin: "*" }));
 
 const styles = StyleSheet.create({
   page: { flexDirection: "row", backgroundColor: "#E4E4E4" },
@@ -20,8 +25,10 @@ const MyDocument = () => (
   </Document>
 );
 
-export default async function handler(_req: any, res: any) {
-  const pdfStream = await renderToStream(<MyDocument />);
+app.get("/pdf", async (_req: Request, res: Response) => {
+  const pdfStream = await ReactPDF.renderToStream(<MyDocument />);
   res.setHeader("Content-Type", "application/pdf");
   pdfStream.pipe(res);
-}
+});
+
+app.listen(PORT, () => console.log(`PDF server ready: http://localhost:${PORT}`));

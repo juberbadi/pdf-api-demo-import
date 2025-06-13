@@ -2,6 +2,7 @@
   "version": 2,
   "rewrites": [
     { "source": "/pdf", "destination": "/api/pdf" },
-    { "source": "/(.*)", "destination": "/api" }
+    { "source": "/", "destination": "/api/index" },
+    { "source": "/(.*)", "destination": "/api/index" }
   ]
 }

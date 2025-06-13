@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "jsx": "react",
-    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "rootDir": ".",
     "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["api", "local"]
 }

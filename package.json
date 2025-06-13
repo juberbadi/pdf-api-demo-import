@@ -8,7 +8,11 @@
     "dev:main": "node --loader ts-node/esm local/index.ts",
     "dev:pdf": "node --loader ts-node/esm local/pdf.tsx",
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:pdf\"",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "build": "tsc",
+    "start:prod:main": "node dist/local/index.js",
+    "start:prod:pdf": "node dist/local/pdf.js",
+    "start:prod": "concurrently \"npm run start:prod:main\" \"npm run start:prod:pdf\""
   },
   "author": "",
   "license": "ISC",

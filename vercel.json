@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/pdf", "destination": "/api/pdf" },
-    { "source": "/", "destination": "/api/index" },
-    { "source": "/(.*)", "destination": "/api/index" }
+  "builds": [
+    { "src": "dist/api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/pdf", "dest": "dist/api/pdf.js" },
+    { "src": "/(.*)", "dest": "dist/api/index.js" }
   ]
 }
